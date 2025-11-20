@@ -15,4 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag github-gists-server:latest
+      run: docker build . --file Dockerfile --tag github-gists-server:latest 
+
+    - name: Create Pod
+      run: kubectl run github-gists --image=github-gists-server:latest  --restart=Never
