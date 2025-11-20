@@ -18,4 +18,4 @@ jobs:
       run: docker build . --file Dockerfile --tag github-gists-server:latest 
 
     - name: Create Pod
-      run: kubectl run github-gists --image=github-gists-server:latest  --restart=Never
+      run: kubectl apply -f deployment.yaml

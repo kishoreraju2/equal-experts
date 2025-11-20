@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gists-server
+  labels:
+    app: gists-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gists-server
+  template:
+    metadata:
+      labels:
+        app: gists-server
+    spec:
+      containers:
+      - name: gists-server
+        image: github-gists-server:latest
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Never
+
